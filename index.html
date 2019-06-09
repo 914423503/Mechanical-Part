@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<title>机械零件装配虚拟平台</title>
+		<!-- no cache headers -->
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="no-cache">
+		<meta http-equiv="Expires" content="-1">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<meta charset="utf-8">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<!--progress bar-->
+		<link rel="stylesheet" href="pace/themes/pace-theme-loading-bar.css"/>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/pace.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	</head>
+
+	<body>
+		<div id="dialog" style="display: none;">asdfasfasfasdfsf</div>
+		<div id="notification" style="width: 30%;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Open Sans;
+	margin-top: 30%;" >由于需要加载大量机械零件实体文件，速度较慢，请谅解!</div>
+		<!--anim-->
+		<script type="text/javascript" src="js/Tween.js"></script>
+		<!--three.js-->
+		<script type="text/javascript" src="js/three.min.js"></script>
+		<script type="text/javascript" src="js/CanvasRenderer.js" ></script>
+		<script type="text/javascript" src="js/Projector.js" ></script>
+		<script type="text/javascript" src="js/MTLLoader.js"></script>
+		<script type="text/javascript" src="js/OBJMTLLoader.js"></script>
+		<script type="text/javascript" src="js/TrackballControls.js"></script>
+		<script type="text/javascript" src="js/CSS2DRenderer.js"></script>
+		<!--main-->
+		<script type="text/javascript" src="js/main_viewports.js"></script>
+		<script type="application/javascript">
+			function jump(currentObj) {
+				if(currentObj){
+					location.href = 'index.html?currentObj=' + currentObj;
+				}else{
+					location.href = 'index.html';
+				}
+			}
+		</script>
+		<link rel="stylesheet" href="css/basic.css" />
+
+		<canvas id="pip"></canvas>
+		<!--bottom nav bar-->
+		<nav>
+		
+			<div class="btn-group" role="group" >
+				<button type="button" class="btn btn-default" onclick="jump()">首页</button>
+			</div>
+				|
+			<!--实验选择-->
+			<div class="btn-group" role="group">
+				<div class="btn-group" role="group" >
+					<button type="button" class="btn btn-default" onclick="jump(0)">带轮实验</button>
+					<button type="button" class="btn btn-default" onclick="jump(1)">齿轮与齿条</button>
+					<button type="button" class="btn btn-default" onclick="jump(2)">一级减速器实验</button>
+					<button type="button" class="btn btn-default" onclick="jump(3)">行星减速器实验</button>
+					<button type="button" class="btn btn-default" onclick="jump(5)">冬奥会</button>
+				</div>
+			</div>
+				|
+			<!--其他选项-->
+			<div class="btn-group" role="group" >
+				<button type="button" class="btn btn-default" onclick="tooglePip()">缩略图</button>
+				<button type="button" class="btn btn-default" onclick="toogleWireFrameAll()">线框图</button>
+				<button type="button" class="btn btn-default" onclick="split()">爆炸图</button>
+				<button type="button" class="btn btn-default" onclick="resetState()">重置</button>
+			</div>
+			<strong id="numberOfObjects"></strong>
+		</nav>
+	</body>
+
+</html>
